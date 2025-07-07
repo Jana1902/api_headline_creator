@@ -16,8 +16,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.options("*", cors(corsOptions));
-
 app.use("/", router);
 
 const port = 5001;
