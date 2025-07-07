@@ -8,12 +8,15 @@ const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://headline-generator-seven.vercel.app",
-    credentials: true,
-  })
-);
+
+const corsOptions = {
+  origin: "https://headline-generator-seven.vercel.app",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+app.options("*", cors(corsOptions));
 
 app.use("/", router);
 
